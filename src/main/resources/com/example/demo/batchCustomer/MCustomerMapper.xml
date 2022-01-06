@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.batchCustomer.MCustomerMapper">
+    <!--    パスの指定-->
+
+    <select id="findAll" resultType="com.example.demo.batchCustomer.MCustomer">
+        select customer_id as customerId, name, address from m_customer
+    </select>
+<!--    <select id="findOne" resultType="com.example.demo.MySchema">-->
+<!--        select * from myschema where id = #{id}-->
+<!--    </select>-->
+    <insert id="insert" useGeneratedKeys="true">
+        insert into m_customer2 (customer_id,name, address) values (#{customer_id}, #{name}, #{address})
+    </insert>
+    <!--    <update id="update">-->
+    <!--        update player set name = #{name}, team = #{team}, position = #{position} where id = #{id}-->
+    <!--    </update>-->
+    <delete id="delete">
+        delete from m_customer2
+    </delete>
+</mapper>

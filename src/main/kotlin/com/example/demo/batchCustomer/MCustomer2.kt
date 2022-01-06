@@ -1,9 +1,7 @@
 package com.example.demo.batchCustomer
 
-import org.springframework.boot.autoconfigure.domain.EntityScan
+class MCustomer2 {
 
-@EntityScan
-class MCustomer {
     var customerId: Int = 0
     var name: String = ""
     var address: String = ""
@@ -17,5 +15,4 @@ class MCustomer {
         this.name = name
         this.address = address
     }
-
 }
