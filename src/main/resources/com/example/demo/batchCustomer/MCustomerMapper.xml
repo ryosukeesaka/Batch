@@ -15,6 +15,16 @@
     <!--    <update id="update">-->
     <!--        update player set name = #{name}, team = #{team}, position = #{position} where id = #{id}-->
     <!--    </update>-->
+    <insert id="insertBulk" parameterType="java.util.List">
+        insert into m_customer2
+        (customer_id,name, address)
+        values
+        <foreach collection="MCustomer" item="em" separator=",">
+            (
+            #{em.customerId}, #{em.name},#{em.address}
+            )
+        </foreach>
+    </insert>
     <delete id="delete">
         delete from m_customer2
     </delete>

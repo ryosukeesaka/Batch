@@ -7,5 +7,6 @@ public interface MCustomerMapper {
 
     fun findAll(): List<MCustomer>
     fun delete()
-    fun insert(customer_id:Int,name: String,address: String)
+    //fun insert(customer_id:Int,name: String,address: String)
+    fun insertBulk(MCustomer: List<MCustomer>)
 }
