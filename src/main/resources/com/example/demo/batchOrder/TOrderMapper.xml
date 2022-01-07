@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.batchOrder.TOrderMapper">
+    <!--    パスの指定-->
+
+    <select id="findAll" resultType="com.example.demo.batchOrder.TOrder">
+        select order_number as orderNumber,order_date as orderDate, total_amount as totalAmount,customer_id as customerId,payment_method as paymentMethod from t_order
+    </select>
+    <insert id="insert" useGeneratedKeys="true">
+        insert into t_order2 values (#{order_number}, #{order_date}, #{total_amount},#{customer_id}, #{pay_method})
+    </insert>
+    <!--    <update id="update">-->
+    <!--        update player set name = #{name}, team = #{team}, position = #{position} where id = #{id}-->
+    <!--    </update>-->
+    <delete id="delete">
+        delete from t_order2
+    </delete>
+    <insert id="insertBulk" parameterType="java.util.List">
+        insert into t_order2
+        (order_id,order_date, total_amount,customer_id,pay_method)
+        values
+        <foreach collection="TOrder" item="em" separator=",">
+            (
+            #{em.orderNumber}, #{em.orderDate},#{em.totalAmount},#{em.customerId}, #{em.paymentMethod}
+            )
+        </foreach>
+    </insert>
+
+
+    <select id="findAllD" resultType="com.example.demo.batchOrder.TOrder">
+        select order_number as orderNumber,item_id as itemId, amount from t_orderdetail
+    </select>
+
+    <delete id="deleteD">
+        delete from t_orderdetail2
+    </delete>
+
+    <insert id="insertBulkD" parameterType="java.util.List">
+        insert into t_orderdetail2
+        (order_number, item_id, amount)
+        values
+        <foreach collection="TOrder" item="em" separator=",">
+            (
+            #{em.orderNumber}, #{em.itemId},#{em.Amount}
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.batchOrder.TOrderDetailMapper">
+    <!--    パスの指定-->
+    <select id="findAll" resultType="com.example.demo.batchOrder.TOrderDetail">
+        select order_number as orderNumber,item_id as itemId, amount from t_orderdetail
+    </select>
+
+    <delete id="delete">
+        delete from t_orderdetail2
+    </delete>
+
+    <insert id="insertBulk" parameterType="java.util.List">
+        insert into t_orderdetail2
+        (order_number, item_id, amount)
+        values
+        <foreach collection="TOrderDetail" item="em" separator=",">
+            (
+            #{em.orderNumber}, #{em.itemId},#{em.amount}
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>
