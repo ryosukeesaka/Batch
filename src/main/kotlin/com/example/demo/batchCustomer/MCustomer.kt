@@ -1,21 +1,13 @@
 package com.example.demo.batchCustomer
 
-import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.stereotype.Component
 
-@EntityScan
-class MCustomer {
-    var customerId: Int = 0
-    var name: String = ""
-    var address: String = ""
-
-    fun MCustomer(
-        customerId: Int,
-        name: String,
-        address: String
-    ) {
-        this.customerId = customerId
-        this.name = name
-        this.address = address
-    }
-
-}
+/**
+ * 顧客情報管理クラス
+ *
+ * @property customerId 顧客ID
+ * @property name 顧客名
+ * @property address 住所
+ */
+@Component
+data class MCustomer(var customerId: Int,var name: String,var address: String)
