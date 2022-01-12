@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.batchItem.MItemMapper">
+    <!--    パスの指定-->
+
+    <select id="findAll" resultType="com.example.demo.batchItem.MItem">
+        select item_id as itemId, item_name as itemName, artist_name as artistName, unit_price as unitPrice from m_item
+    </select>
+    <delete id="delete">
+        delete from m_item2
+    </delete>
+    <insert id="insertBulk" parameterType="java.util.List">
+        insert into m_item2
+        (item_id,item_name, artist_name,unit_price)
+        values
+        <foreach collection="MItem" item="em" separator=",">
+            (
+            #{em.itemId}, #{em.itemName},#{em.artistName},#{em.unitPrice}
+            )
+        </foreach>
+    </insert>
+</mapper>
