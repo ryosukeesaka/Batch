@@ -9,14 +9,14 @@
     <delete id="delete">
         delete from m_item2
     </delete>
-    <insert id="insertBulk" parameterType="java.util.List">
-        insert into m_item2
-        (item_id,item_name, artist_name,unit_price)
-        values
-        <foreach collection="MItem" item="em" separator=",">
-            (
-            #{em.itemId}, #{em.itemName},#{em.artistName},#{em.unitPrice}
-            )
-        </foreach>
-    </insert>
+<!--    <insert id="insertBulk" parameterType="java.util.List">-->
+<!--        insert into m_item2-->
+<!--        (item_id,item_name, artist_name,unit_price)-->
+<!--        values-->
+<!--        <foreach collection="MItem" item="em" separator=",">-->
+<!--            (-->
+<!--            #{em.itemId}, #{em.itemName},#{em.artistName},#{em.unitPrice}-->
+<!--            )-->
+<!--        </foreach>-->
+<!--    </insert>-->
 </mapper>

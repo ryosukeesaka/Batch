@@ -25,32 +25,29 @@ import org.springframework.transaction.annotation.Transactional
 @Component
 class MItemTasklet(var mItemMapper: MItemMapper): Tasklet {
 
-    @Transactional
-    override fun execute(contribution: StepContribution, chunkContext: ChunkContext): RepeatStatus {
+    fun write() :FlatFileItemWriter<MItem> {
+        val writer: FlatFileItemWriter<MItem> = FlatFileItemWriter<MItem>()
+        //val write: FlatFileItemWriter<MItem>
+        val outputResource: Resource = FileSystemResource("C:\\temp\\data.csv")
 
+        writer.setResource(outputResource)
+        writer.setEncoding("Shift-JIS")
+        writer.setLineSeparator("\r\n")
+        writer.setAppendAllowed(false)
+        //オブジェクト式は、クラスの無名インスタンスを生成します。
+        writer.setHeaderCallback(FlatFileHeaderCallback { arg0 -> arg0.append("\"ID\",\"商品名\",\"アーティスト名\",\"メールアドレス\"") })
 
-        fun write() :FlatFileItemWriter<MItem> {
-            val writer: FlatFileItemWriter<MItem> = FlatFileItemWriter<MItem>()
-            //val write: FlatFileItemWriter<MItem>
-            val outputResource: Resource = FileSystemResource("C:\\Users\\ryosuke.esaka.yu\\Desktop\\SpringBatchSample\\demo\\src\\main\\resources\\data.csv")
-            writer.setResource(outputResource)
-            writer.setEncoding("Shift-JIS")
-            writer.setLineSeparator("\r\n")
-            writer.setAppendAllowed(false)
-            //オブジェクト式は、クラスの無名インスタンスを生成します。
-            writer.setHeaderCallback(FlatFileHeaderCallback { arg0 -> arg0.append("\"ID\",\"商品名\",\"アーティスト名\",\"メールアドレス\"") })
-
-            writer.setLineAggregator(object: DelimitedLineAggregator<MItem?>() {
-                init{
-                    setDelimiter(",")
-                    setFieldExtractor(object: BeanWrapperFieldExtractor<MItem?>() {
-                        init {
-                            setNames(arrayOf("itemId", "itemName","artistName", "unitPrice"))
-                        }
-                    })
-                }
-            })
-            //writer.setLineAggregator(LineAggregator<MItem?>() {
+        writer.setLineAggregator(object: DelimitedLineAggregator<MItem?>() {
+            init{
+                setDelimiter(",")
+                setFieldExtractor(object: BeanWrapperFieldExtractor<MItem?>() {
+                    init {
+                        setNames(arrayOf("itemId", "itemName","artistName", "unitPrice"))
+                    }
+                })
+            }
+        })
+        //writer.setLineAggregator(LineAggregator<MItem?>() {
 //                init {
 //                    setFieldExtractor(BeanWrapperFieldExtractor<MItem?>() {
 //                        init {
@@ -61,8 +58,11 @@ class MItemTasklet(var mItemMapper: MItemMapper): Tasklet {
 //            })
 
 
-            return writer
-        }
+        return writer
+    }
+
+    @Transactional
+    override fun execute(contribution: StepContribution, chunkContext: ChunkContext): RepeatStatus {
 
         val mItem = mItemMapper.findAll()
 
@@ -86,15 +86,11 @@ class MItemTasklet(var mItemMapper: MItemMapper): Tasklet {
 
         streamWriter.close()
 
-
-
-
-
         // 商品情報(移管先)全件削除
         mItemMapper.delete()
 
         // 商品情報(移管先)登録
-        mItemMapper.insertBulk(mItem)
+        //mItemMapper.insertBulk(mItem)
 
         return RepeatStatus.FINISHED
     }

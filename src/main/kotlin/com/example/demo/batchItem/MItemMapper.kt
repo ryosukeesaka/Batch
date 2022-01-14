@@ -9,5 +9,5 @@ interface MItemMapper {
 
     fun delete()
 
-    fun insertBulk(MItem: List<MItem>)
+    //fun insertBulk(MItem: List<MItem>)
 }
