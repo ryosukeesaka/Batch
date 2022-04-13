@@ -3,7 +3,7 @@ package com.example.demo.batchOrder
 import org.apache.ibatis.annotations.Mapper
 
 /**
- * 注文情報移管DBアクセスクラス
+ * 注文情報移管DBアクセスクラスdes
  *
  */
 @Mapper
