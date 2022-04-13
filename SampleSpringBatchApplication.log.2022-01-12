@@ -1,0 +1,418 @@
+2022-01-12 13:31:37.246  INFO 20940 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 20940 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 13:31:37.252  INFO 20940 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 13:31:39.821  INFO 20940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 13:31:40.242  INFO 20940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 13:31:40.459  INFO 20940 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 13:31:40.804  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 13:31:40.943  INFO 20940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 13:31:40.968  INFO 20940 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 4.27 seconds (JVM running for 5.284)
+2022-01-12 13:31:40.971  INFO 20940 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 13:31:41.114  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=104}]
+2022-01-12 13:31:41.156  INFO 20940 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 13:31:41.246  INFO 20940 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 89ms
+2022-01-12 13:31:41.253  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=104}] and the following status: [COMPLETED] in 110ms
+2022-01-12 13:31:41.271  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=29}]
+2022-01-12 13:31:41.279  INFO 20940 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 13:31:41.313 ERROR 20940 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Encountered an error executing step mItemStep in job mItemJob
+
+org.springframework.batch.item.ItemStreamException: Unable to create file: [C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv]
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:84)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.initializeBufferedWriter(AbstractFileItemWriter.java:554)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.access$000(AbstractFileItemWriter.java:386)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.doOpen(AbstractFileItemWriter.java:320)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.open(AbstractFileItemWriter.java:310)
+	at com.example.demo.batchItem.MItemTasklet.execute(MItemTasklet.kt:81)
+	at com.example.demo.batchItem.MItemTasklet$$FastClassBySpringCGLIB$$9f241831.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at com.example.demo.batchItem.MItemTasklet$$EnhancerBySpringCGLIB$$2156aa29.execute(<generated>)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375)
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215)
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145)
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258)
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208)
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:152)
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:413)
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136)
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:320)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:149)
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:128)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy3/jdk.proxy3.$Proxy70.run(Unknown Source)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.execute(JobLauncherApplicationRunner.java:199)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.executeLocalJobs(JobLauncherApplicationRunner.java:173)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.launchJobFromProperties(JobLauncherApplicationRunner.java:160)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:155)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:150)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:748)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)
+	at com.example.demo.SpringBatchSampleApplicationKt.main(SpringBatchSampleApplication.kt:22)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.io.IOException: Could not delete file: C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:59)
+	... 61 common frames omitted
+
+2022-01-12 13:31:41.315  INFO 20940 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 36ms
+2022-01-12 13:31:41.323  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=29}] and the following status: [FAILED] in 50ms
+2022-01-12 13:31:41.342  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=44}]
+2022-01-12 13:31:41.357  INFO 20940 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 13:31:41.369  INFO 20940 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 13:31:41.389  INFO 20940 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 32ms
+2022-01-12 13:31:41.409  INFO 20940 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 39ms
+2022-01-12 13:31:41.421  INFO 20940 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=44}] and the following status: [COMPLETED] in 77ms
+2022-01-12 13:31:41.435  INFO 20940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 13:31:41.443  INFO 20940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 13:32:45.759  INFO 11492 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 11492 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 13:32:45.760  INFO 11492 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 13:32:47.534  INFO 11492 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 13:32:47.792  INFO 11492 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 13:32:47.943  INFO 11492 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 13:32:48.172  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 13:32:48.280  INFO 11492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 13:32:48.303  INFO 11492 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.058 seconds (JVM running for 3.672)
+2022-01-12 13:32:48.305  INFO 11492 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 13:32:48.425  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=105}]
+2022-01-12 13:32:48.470  INFO 11492 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 13:32:48.563  INFO 11492 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 93ms
+2022-01-12 13:32:48.570  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=105}] and the following status: [COMPLETED] in 114ms
+2022-01-12 13:32:48.586  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=30}]
+2022-01-12 13:32:48.595  INFO 11492 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 13:32:48.682  INFO 11492 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 87ms
+2022-01-12 13:32:48.688  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=30}] and the following status: [COMPLETED] in 99ms
+2022-01-12 13:32:48.701  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=45}]
+2022-01-12 13:32:48.715  INFO 11492 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 13:32:48.724  INFO 11492 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 13:32:48.735  INFO 11492 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 20ms
+2022-01-12 13:32:48.746  INFO 11492 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 22ms
+2022-01-12 13:32:48.752  INFO 11492 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=45}] and the following status: [COMPLETED] in 49ms
+2022-01-12 13:32:48.762  INFO 11492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 13:32:48.767  INFO 11492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 13:37:25.461  INFO 21652 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 21652 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 13:37:25.463  INFO 21652 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 13:37:27.456  INFO 21652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 13:37:27.716  INFO 21652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 13:37:27.875  INFO 21652 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 13:37:28.093  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 13:37:28.199  INFO 21652 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 13:37:28.217  INFO 21652 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.527 seconds (JVM running for 4.12)
+2022-01-12 13:37:28.219  INFO 21652 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 13:37:28.337  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=106}]
+2022-01-12 13:37:28.383  INFO 21652 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 13:37:28.460  INFO 21652 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 76ms
+2022-01-12 13:37:28.466  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=106}] and the following status: [COMPLETED] in 99ms
+2022-01-12 13:37:28.477  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=31}]
+2022-01-12 13:37:28.484  INFO 21652 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 13:37:28.576  INFO 21652 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 92ms
+2022-01-12 13:37:28.582  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=31}] and the following status: [COMPLETED] in 102ms
+2022-01-12 13:37:28.600  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=46}]
+2022-01-12 13:37:28.614  INFO 21652 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 13:37:28.620  INFO 21652 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 13:37:28.635  INFO 21652 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 21ms
+2022-01-12 13:37:28.649  INFO 21652 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 29ms
+2022-01-12 13:37:28.655  INFO 21652 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=46}] and the following status: [COMPLETED] in 53ms
+2022-01-12 13:37:28.667  INFO 21652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 13:37:28.672  INFO 21652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:05:04.087  INFO 13304 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 13304 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:05:04.088  INFO 13304 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:05:05.985  INFO 13304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:05:06.395  INFO 13304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:05:06.651  INFO 13304 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:05:06.951  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:05:07.116  INFO 13304 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:05:07.147  INFO 13304 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.576 seconds (JVM running for 4.508)
+2022-01-12 14:05:07.151  INFO 13304 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:05:07.300  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=107}]
+2022-01-12 14:05:07.349  INFO 13304 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:05:07.426  INFO 13304 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 77ms
+2022-01-12 14:05:07.434  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=107}] and the following status: [COMPLETED] in 101ms
+2022-01-12 14:05:07.453  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=32}]
+2022-01-12 14:05:07.463  INFO 13304 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:05:07.576  INFO 13304 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 113ms
+2022-01-12 14:05:07.581  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=32}] and the following status: [COMPLETED] in 125ms
+2022-01-12 14:05:07.595  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=47}]
+2022-01-12 14:05:07.608  INFO 13304 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:05:07.618  INFO 13304 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:05:07.633  INFO 13304 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 25ms
+2022-01-12 14:05:07.648  INFO 13304 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 28ms
+2022-01-12 14:05:07.656  INFO 13304 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=47}] and the following status: [COMPLETED] in 59ms
+2022-01-12 14:05:07.667  INFO 13304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:05:07.672  INFO 13304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:06:14.828  INFO 16668 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 16668 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:06:14.830  INFO 16668 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:06:16.770  INFO 16668 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:06:17.045  INFO 16668 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:06:17.196  INFO 16668 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:06:17.399  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:06:17.526  INFO 16668 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:06:17.549  INFO 16668 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.308 seconds (JVM running for 3.92)
+2022-01-12 14:06:17.551  INFO 16668 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:06:17.669  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=108}]
+2022-01-12 14:06:17.715  INFO 16668 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:06:17.790  INFO 16668 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 73ms
+2022-01-12 14:06:17.797  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=108}] and the following status: [COMPLETED] in 96ms
+2022-01-12 14:06:17.810  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=33}]
+2022-01-12 14:06:17.817  INFO 16668 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:06:17.923  INFO 16668 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 106ms
+2022-01-12 14:06:17.928  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=33}] and the following status: [COMPLETED] in 115ms
+2022-01-12 14:06:17.937  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=48}]
+2022-01-12 14:06:17.946  INFO 16668 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:06:17.950  INFO 16668 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:06:17.963  INFO 16668 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 17ms
+2022-01-12 14:06:17.972  INFO 16668 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 21ms
+2022-01-12 14:06:17.979  INFO 16668 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=48}] and the following status: [COMPLETED] in 40ms
+2022-01-12 14:06:17.987  INFO 16668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:06:17.992  INFO 16668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:06:55.379  INFO 21372 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 21372 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:06:55.380  INFO 21372 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:06:57.253  INFO 21372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:06:57.575  INFO 21372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:06:57.742  INFO 21372 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:06:57.998  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:06:58.153  INFO 21372 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:06:58.181  INFO 21372 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.469 seconds (JVM running for 4.101)
+2022-01-12 14:06:58.184  INFO 21372 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:06:58.334  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=109}]
+2022-01-12 14:06:58.384  INFO 21372 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:06:58.504  INFO 21372 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 120ms
+2022-01-12 14:06:58.512  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=109}] and the following status: [COMPLETED] in 144ms
+2022-01-12 14:06:58.530  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=34}]
+2022-01-12 14:06:58.542  INFO 21372 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:06:58.656  INFO 21372 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 114ms
+2022-01-12 14:06:58.662  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=34}] and the following status: [COMPLETED] in 128ms
+2022-01-12 14:06:58.678  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=49}]
+2022-01-12 14:06:58.692  INFO 21372 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:06:58.706  INFO 21372 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:06:58.716  INFO 21372 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 24ms
+2022-01-12 14:06:58.734  INFO 21372 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 27ms
+2022-01-12 14:06:58.741  INFO 21372 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=49}] and the following status: [COMPLETED] in 60ms
+2022-01-12 14:06:58.754  INFO 21372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:06:58.770  INFO 21372 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:09:05.168  INFO 19324 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 19324 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:09:05.170  INFO 19324 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:09:07.148  INFO 19324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:09:07.539  INFO 19324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:09:07.741  INFO 19324 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:09:08.011  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:09:08.190  INFO 19324 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:09:08.221  INFO 19324 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.629 seconds (JVM running for 4.631)
+2022-01-12 14:09:08.224  INFO 19324 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:09:08.414  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=110}]
+2022-01-12 14:09:08.465  INFO 19324 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:09:08.564  INFO 19324 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 99ms
+2022-01-12 14:09:08.571  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=110}] and the following status: [COMPLETED] in 125ms
+2022-01-12 14:09:08.584  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=35}]
+2022-01-12 14:09:08.591  INFO 19324 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:09:08.701  INFO 19324 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 109ms
+2022-01-12 14:09:08.705  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=35}] and the following status: [COMPLETED] in 118ms
+2022-01-12 14:09:08.717  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=50}]
+2022-01-12 14:09:08.729  INFO 19324 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:09:08.734  INFO 19324 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:09:08.752  INFO 19324 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 23ms
+2022-01-12 14:09:08.763  INFO 19324 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 29ms
+2022-01-12 14:09:08.769  INFO 19324 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=50}] and the following status: [COMPLETED] in 49ms
+2022-01-12 14:09:08.778  INFO 19324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:09:08.782  INFO 19324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:10:05.458  INFO 22836 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 22836 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:10:05.459  INFO 22836 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:10:07.269  INFO 22836 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:10:07.526  INFO 22836 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:10:07.662  INFO 22836 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:10:07.883  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:10:08.021  INFO 22836 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:10:08.046  INFO 22836 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.088 seconds (JVM running for 3.704)
+2022-01-12 14:10:08.048  INFO 22836 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:10:08.151  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=111}]
+2022-01-12 14:10:08.185  INFO 22836 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:10:08.274  INFO 22836 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 89ms
+2022-01-12 14:10:08.284  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=111}] and the following status: [COMPLETED] in 110ms
+2022-01-12 14:10:08.303  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=36}]
+2022-01-12 14:10:08.311  INFO 22836 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:10:08.397  INFO 22836 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 86ms
+2022-01-12 14:10:08.402  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=36}] and the following status: [COMPLETED] in 97ms
+2022-01-12 14:10:08.412  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=51}]
+2022-01-12 14:10:08.423  INFO 22836 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:10:08.428  INFO 22836 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:10:08.441  INFO 22836 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 18ms
+2022-01-12 14:10:08.448  INFO 22836 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 19ms
+2022-01-12 14:10:08.455  INFO 22836 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=51}] and the following status: [COMPLETED] in 41ms
+2022-01-12 14:10:08.466  INFO 22836 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:10:08.471  INFO 22836 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:12:05.991  INFO 17848 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 17848 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:12:05.992  INFO 17848 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:12:08.006  INFO 17848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:12:08.297  INFO 17848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:12:08.463  INFO 17848 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:12:08.686  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:12:08.813  INFO 17848 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:12:08.837  INFO 17848 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.394 seconds (JVM running for 4.016)
+2022-01-12 14:12:08.839  INFO 17848 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:12:08.958  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=112}]
+2022-01-12 14:12:09.000  INFO 17848 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:12:09.095  INFO 17848 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 95ms
+2022-01-12 14:12:09.100  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=112}] and the following status: [COMPLETED] in 118ms
+2022-01-12 14:12:09.112  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=37}]
+2022-01-12 14:12:09.118  INFO 17848 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:12:09.194  INFO 17848 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 76ms
+2022-01-12 14:12:09.200  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=37}] and the following status: [COMPLETED] in 86ms
+2022-01-12 14:12:09.218  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=52}]
+2022-01-12 14:12:09.232  INFO 17848 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:12:09.240  INFO 17848 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:12:09.251  INFO 17848 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 19ms
+2022-01-12 14:12:09.263  INFO 17848 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 23ms
+2022-01-12 14:12:09.269  INFO 17848 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=52}] and the following status: [COMPLETED] in 48ms
+2022-01-12 14:12:09.278  INFO 17848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:12:09.283  INFO 17848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:14:51.646  INFO 19992 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 19992 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:14:51.648  INFO 19992 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:14:53.606  INFO 19992 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:14:53.860  INFO 19992 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:14:53.992  INFO 19992 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:14:54.206  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:14:54.333  INFO 19992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:14:54.359  INFO 19992 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.247 seconds (JVM running for 3.868)
+2022-01-12 14:14:54.361  INFO 19992 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:14:54.483  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=113}]
+2022-01-12 14:14:54.530  INFO 19992 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:14:54.609  INFO 19992 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 78ms
+2022-01-12 14:14:54.616  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=113}] and the following status: [COMPLETED] in 103ms
+2022-01-12 14:14:54.629  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=38}]
+2022-01-12 14:14:54.635  INFO 19992 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:14:54.749  INFO 19992 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 114ms
+2022-01-12 14:14:54.754  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=38}] and the following status: [COMPLETED] in 123ms
+2022-01-12 14:14:54.764  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=53}]
+2022-01-12 14:14:54.773  INFO 19992 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:14:54.780  INFO 19992 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:14:54.791  INFO 19992 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 17ms
+2022-01-12 14:14:54.802  INFO 19992 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 22ms
+2022-01-12 14:14:54.807  INFO 19992 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=53}] and the following status: [COMPLETED] in 42ms
+2022-01-12 14:14:54.816  INFO 19992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:14:54.820  INFO 19992 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:16:01.023  INFO 11748 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 11748 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:16:01.025  INFO 11748 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:16:03.031  INFO 11748 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:16:03.292  INFO 11748 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:16:03.441  INFO 11748 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:16:03.648  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:16:03.775  INFO 11748 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:16:03.802  INFO 11748 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.304 seconds (JVM running for 3.919)
+2022-01-12 14:16:03.804  INFO 11748 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:16:03.915  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=114}]
+2022-01-12 14:16:03.960  INFO 11748 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:16:04.034  INFO 11748 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 72ms
+2022-01-12 14:16:04.041  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=114}] and the following status: [COMPLETED] in 94ms
+2022-01-12 14:16:04.053  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=39}]
+2022-01-12 14:16:04.060  INFO 11748 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:16:04.163  INFO 11748 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 103ms
+2022-01-12 14:16:04.168  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=39}] and the following status: [COMPLETED] in 113ms
+2022-01-12 14:16:04.182  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=54}]
+2022-01-12 14:16:04.194  INFO 11748 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:16:04.200  INFO 11748 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:16:04.210  INFO 11748 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 16ms
+2022-01-12 14:16:04.223  INFO 11748 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 22ms
+2022-01-12 14:16:04.229  INFO 11748 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=54}] and the following status: [COMPLETED] in 46ms
+2022-01-12 14:16:04.240  INFO 11748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:16:04.245  INFO 11748 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:18:33.017  INFO 23220 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 23220 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:18:33.019  INFO 23220 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:18:34.792  INFO 23220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:18:35.053  INFO 23220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:18:35.202  INFO 23220 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:18:35.412  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:18:35.540  INFO 23220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:18:35.566  INFO 23220 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.117 seconds (JVM running for 3.704)
+2022-01-12 14:18:35.569  INFO 23220 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:18:35.694  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=115}]
+2022-01-12 14:18:35.739  INFO 23220 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:18:35.821  INFO 23220 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 81ms
+2022-01-12 14:18:35.829  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=115}] and the following status: [COMPLETED] in 105ms
+2022-01-12 14:18:35.847  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=40}]
+2022-01-12 14:18:35.855  INFO 23220 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:18:35.936  INFO 23220 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 81ms
+2022-01-12 14:18:35.941  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=40}] and the following status: [COMPLETED] in 91ms
+2022-01-12 14:18:35.954  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=55}]
+2022-01-12 14:18:35.966  INFO 23220 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:18:35.972  INFO 23220 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:18:35.982  INFO 23220 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 16ms
+2022-01-12 14:18:35.992  INFO 23220 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 20ms
+2022-01-12 14:18:36.000  INFO 23220 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=55}] and the following status: [COMPLETED] in 43ms
+2022-01-12 14:18:36.011  INFO 23220 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:18:36.017  INFO 23220 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 14:19:55.400  INFO 20700 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 20700 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 14:19:55.401  INFO 20700 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-12 14:19:57.226  INFO 20700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 14:19:57.488  INFO 20700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 14:19:57.627  INFO 20700 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 14:19:57.844  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 14:19:57.975  INFO 20700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-12 14:19:57.997  INFO 20700 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.191 seconds (JVM running for 3.813)
+2022-01-12 14:19:58.000  INFO 20700 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 14:19:58.121  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=116}]
+2022-01-12 14:19:58.167  INFO 20700 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 14:19:58.239  INFO 20700 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 72ms
+2022-01-12 14:19:58.244  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=116}] and the following status: [COMPLETED] in 92ms
+2022-01-12 14:19:58.256  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=41}]
+2022-01-12 14:19:58.265  INFO 20700 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 14:19:58.345  INFO 20700 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 80ms
+2022-01-12 14:19:58.349  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=41}] and the following status: [COMPLETED] in 91ms
+2022-01-12 14:19:58.358  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=56}]
+2022-01-12 14:19:58.367  INFO 20700 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 14:19:58.371  INFO 20700 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 14:19:58.382  INFO 20700 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 15ms
+2022-01-12 14:19:58.390  INFO 20700 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 18ms
+2022-01-12 14:19:58.397  INFO 20700 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=56}] and the following status: [COMPLETED] in 37ms
+2022-01-12 14:19:58.407  INFO 20700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 14:19:58.414  INFO 20700 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-12 18:15:02.168  INFO 20668 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Starting SpringBatchSampleApplicationTests using Java 16.0.2 on NPC-2021-015 with PID 20668 (started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-12 18:15:02.184  INFO 20668 --- [main] c.e.d.SpringBatchSampleApplicationTests  : The following profiles are active: dev
+2022-01-12 18:15:04.103  INFO 20668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-12 18:15:04.388  INFO 20668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-12 18:15:04.589  INFO 20668 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-12 18:15:04.789  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-12 18:15:04.989  INFO 20668 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Started SpringBatchSampleApplicationTests in 3.192 seconds (JVM running for 4.352)
+2022-01-12 18:15:04.992  INFO 20668 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-12 18:15:05.193  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=117}]
+2022-01-12 18:15:05.248  INFO 20668 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-12 18:15:05.347  INFO 20668 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 98ms
+2022-01-12 18:15:05.353  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=117}] and the following status: [COMPLETED] in 125ms
+2022-01-12 18:15:05.369  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=43}]
+2022-01-12 18:15:05.377  INFO 20668 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-12 18:15:05.455  INFO 20668 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 78ms
+2022-01-12 18:15:05.462  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=43}] and the following status: [COMPLETED] in 91ms
+2022-01-12 18:15:05.479  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=57}]
+2022-01-12 18:15:05.491  INFO 20668 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-12 18:15:05.496  INFO 20668 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-12 18:15:05.519  INFO 20668 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 27ms
+2022-01-12 18:15:05.529  INFO 20668 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 33ms
+2022-01-12 18:15:05.535  INFO 20668 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=57}] and the following status: [COMPLETED] in 54ms
+2022-01-12 18:15:06.072  INFO 20668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-12 18:15:06.077  INFO 20668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

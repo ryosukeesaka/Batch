@@ -1,0 +1,435 @@
+2022-01-13 16:00:31.168  INFO 25892 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 25892 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 16:00:31.175  INFO 25892 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-13 16:00:33.241  INFO 25892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 16:00:33.622  INFO 25892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 16:00:33.835  INFO 25892 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 16:00:34.160  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 16:00:34.313  INFO 25892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-13 16:00:34.347  INFO 25892 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.821 seconds (JVM running for 4.876)
+2022-01-13 16:00:34.351  INFO 25892 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 16:00:34.510  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=118}]
+2022-01-13 16:00:34.560  INFO 25892 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 16:00:34.654  INFO 25892 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 93ms
+2022-01-13 16:00:34.662  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=118}] and the following status: [COMPLETED] in 120ms
+2022-01-13 16:00:34.677  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=46}]
+2022-01-13 16:00:34.685  INFO 25892 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 16:00:34.793  INFO 25892 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 108ms
+2022-01-13 16:00:34.799  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=46}] and the following status: [COMPLETED] in 119ms
+2022-01-13 16:00:34.812  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=58}]
+2022-01-13 16:00:34.827  INFO 25892 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 16:00:34.834  INFO 25892 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 16:00:34.854  INFO 25892 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 27ms
+2022-01-13 16:00:34.867  INFO 25892 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 33ms
+2022-01-13 16:00:34.873  INFO 25892 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=58}] and the following status: [COMPLETED] in 58ms
+2022-01-13 16:00:34.884  INFO 25892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 16:00:34.891  INFO 25892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 16:01:58.352  INFO 23988 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Starting SpringBatchSampleApplicationTests using Java 16.0.2 on NPC-2021-015 with PID 23988 (started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 16:01:58.354  INFO 23988 --- [main] c.e.d.SpringBatchSampleApplicationTests  : The following profiles are active: dev
+2022-01-13 16:02:00.398  INFO 23988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 16:02:00.726  INFO 23988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 16:02:00.983  INFO 23988 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 16:02:01.236  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 16:02:01.489  INFO 23988 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Started SpringBatchSampleApplicationTests in 3.51 seconds (JVM running for 4.649)
+2022-01-13 16:02:01.492  INFO 23988 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 16:02:01.616  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=119}]
+2022-01-13 16:02:01.650  INFO 23988 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 16:02:01.725  INFO 23988 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 75ms
+2022-01-13 16:02:01.733  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=119}] and the following status: [COMPLETED] in 93ms
+2022-01-13 16:02:01.749  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=47}]
+2022-01-13 16:02:01.756  INFO 23988 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 16:02:01.822  INFO 23988 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 66ms
+2022-01-13 16:02:01.826  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=47}] and the following status: [COMPLETED] in 74ms
+2022-01-13 16:02:01.835  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=59}]
+2022-01-13 16:02:01.844  INFO 23988 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 16:02:01.848  INFO 23988 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 16:02:01.860  INFO 23988 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 16ms
+2022-01-13 16:02:01.869  INFO 23988 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 20ms
+2022-01-13 16:02:01.874  INFO 23988 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=59}] and the following status: [COMPLETED] in 38ms
+2022-01-13 16:02:02.392  INFO 23988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 16:02:02.398  INFO 23988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 16:23:47.167  INFO 19256 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 19256 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 16:23:47.169  INFO 19256 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-13 16:23:49.083  INFO 19256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 16:23:49.421  INFO 19256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 16:23:49.603  INFO 19256 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 16:23:49.839  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 16:23:49.980  INFO 19256 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-13 16:23:50.008  INFO 19256 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.382 seconds (JVM running for 4.333)
+2022-01-13 16:23:50.016  INFO 19256 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 16:23:50.166  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=120}]
+2022-01-13 16:23:50.216  INFO 19256 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 16:23:50.303  INFO 19256 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 86ms
+2022-01-13 16:23:50.310  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=120}] and the following status: [COMPLETED] in 109ms
+2022-01-13 16:23:50.325  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=48}]
+2022-01-13 16:23:50.333  INFO 19256 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 16:23:50.425  INFO 19256 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 91ms
+2022-01-13 16:23:50.430  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=48}] and the following status: [COMPLETED] in 103ms
+2022-01-13 16:23:50.443  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=60}]
+2022-01-13 16:23:50.454  INFO 19256 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 16:23:50.459  INFO 19256 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 16:23:50.474  INFO 19256 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 20ms
+2022-01-13 16:23:50.482  INFO 19256 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 23ms
+2022-01-13 16:23:50.488  INFO 19256 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=60}] and the following status: [COMPLETED] in 42ms
+2022-01-13 16:23:50.498  INFO 19256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 16:23:50.502  INFO 19256 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 16:33:16.948  INFO 11300 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Starting SpringBatchSampleApplicationTests using Java 16.0.2 on NPC-2021-015 with PID 11300 (started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 16:33:16.950  INFO 11300 --- [main] c.e.d.SpringBatchSampleApplicationTests  : The following profiles are active: dev
+2022-01-13 16:33:19.147  INFO 11300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 16:33:19.423  INFO 11300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 16:33:19.636  INFO 11300 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 16:33:19.822  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 16:33:20.040  INFO 11300 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Started SpringBatchSampleApplicationTests in 3.448 seconds (JVM running for 4.553)
+2022-01-13 16:33:20.043  INFO 11300 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 16:33:20.197  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=121}]
+2022-01-13 16:33:20.248  INFO 11300 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 16:33:20.353  INFO 11300 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 104ms
+2022-01-13 16:33:20.361  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=121}] and the following status: [COMPLETED] in 129ms
+2022-01-13 16:33:20.374  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=49}]
+2022-01-13 16:33:20.381  INFO 11300 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 16:33:20.442  INFO 11300 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 61ms
+2022-01-13 16:33:20.445  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=49}] and the following status: [COMPLETED] in 70ms
+2022-01-13 16:33:20.453  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=61}]
+2022-01-13 16:33:20.461  INFO 11300 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 16:33:20.466  INFO 11300 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 16:33:20.481  INFO 11300 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 20ms
+2022-01-13 16:33:20.487  INFO 11300 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 21ms
+2022-01-13 16:33:20.495  INFO 11300 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=61}] and the following status: [COMPLETED] in 39ms
+2022-01-13 16:33:20.948  INFO 11300 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 16:33:20.954  INFO 11300 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 17:02:09.342  INFO 23492 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Starting SpringBatchSampleApplicationTests using Java 16.0.2 on NPC-2021-015 with PID 23492 (started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 17:02:09.344  INFO 23492 --- [main] c.e.d.SpringBatchSampleApplicationTests  : The following profiles are active: dev
+2022-01-13 17:02:11.287  INFO 23492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 17:02:11.576  INFO 23492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 17:02:11.769  INFO 23492 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 17:02:11.991  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 17:02:12.178  INFO 23492 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Started SpringBatchSampleApplicationTests in 3.232 seconds (JVM running for 4.33)
+2022-01-13 17:02:12.180  INFO 23492 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 17:02:12.354  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=123}]
+2022-01-13 17:02:12.406  INFO 23492 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 17:02:12.505  INFO 23492 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 97ms
+2022-01-13 17:02:12.511  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=123}] and the following status: [COMPLETED] in 125ms
+2022-01-13 17:02:12.525  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=50}]
+2022-01-13 17:02:12.534  INFO 23492 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 17:02:12.566 ERROR 23492 --- [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step mItemStep in job mItemJob
+
+org.springframework.batch.item.ItemStreamException: Unable to create file: [C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv]
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:84)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.initializeBufferedWriter(AbstractFileItemWriter.java:554)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.access$000(AbstractFileItemWriter.java:386)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.doOpen(AbstractFileItemWriter.java:320)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.open(AbstractFileItemWriter.java:310)
+	at com.example.demo.batchItem.MItemTasklet.execute(MItemTasklet.kt:69)
+	at com.example.demo.batchItem.MItemTasklet$$FastClassBySpringCGLIB$$9f241831.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at com.example.demo.batchItem.MItemTasklet$$EnhancerBySpringCGLIB$$349904bd.execute(<generated>)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375)
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215)
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145)
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258)
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208)
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:152)
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:413)
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136)
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:320)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:149)
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:128)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.run(Unknown Source)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.execute(JobLauncherApplicationRunner.java:199)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.executeLocalJobs(JobLauncherApplicationRunner.java:173)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.launchJobFromProperties(JobLauncherApplicationRunner.java:160)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:155)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:150)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:748)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:121)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:138)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$8(ClassBasedTestDescriptor.java:363)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:368)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$9(ClassBasedTestDescriptor.java:363)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:362)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:283)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:282)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:272)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:271)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:102)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:101)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:66)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.io.IOException: Could not delete file: C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:59)
+	... 124 common frames omitted
+
+2022-01-13 17:02:12.571  INFO 23492 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 37ms
+2022-01-13 17:02:12.580  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=50}] and the following status: [FAILED] in 51ms
+2022-01-13 17:02:12.598  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=62}]
+2022-01-13 17:02:12.614  INFO 23492 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 17:02:12.621  INFO 23492 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 17:02:12.647  INFO 23492 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 33ms
+2022-01-13 17:02:12.661  INFO 23492 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 38ms
+2022-01-13 17:02:12.666  INFO 23492 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=62}] and the following status: [COMPLETED] in 66ms
+2022-01-13 17:02:13.182  INFO 23492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 17:02:13.187  INFO 23492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 17:03:02.537  INFO 23328 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Starting SpringBatchSampleApplicationTests using Java 16.0.2 on NPC-2021-015 with PID 23328 (started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 17:03:02.538  INFO 23328 --- [main] c.e.d.SpringBatchSampleApplicationTests  : The following profiles are active: dev
+2022-01-13 17:03:04.593  INFO 23328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 17:03:04.876  INFO 23328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 17:03:05.093  INFO 23328 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 17:03:05.335  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 17:03:05.556  INFO 23328 --- [main] c.e.d.SpringBatchSampleApplicationTests  : Started SpringBatchSampleApplicationTests in 3.375 seconds (JVM running for 4.542)
+2022-01-13 17:03:05.559  INFO 23328 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 17:03:05.703  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=124}]
+2022-01-13 17:03:05.741  INFO 23328 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 17:03:05.835  INFO 23328 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 94ms
+2022-01-13 17:03:05.843  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=124}] and the following status: [COMPLETED] in 115ms
+2022-01-13 17:03:05.853  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=51}]
+2022-01-13 17:03:05.858  INFO 23328 --- [main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 17:03:05.889 ERROR 23328 --- [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step mItemStep in job mItemJob
+
+org.springframework.batch.item.ItemStreamException: Unable to create file: [C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv]
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:84)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.initializeBufferedWriter(AbstractFileItemWriter.java:554)
+	at org.springframework.batch.item.support.AbstractFileItemWriter$OutputState.access$000(AbstractFileItemWriter.java:386)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.doOpen(AbstractFileItemWriter.java:320)
+	at org.springframework.batch.item.support.AbstractFileItemWriter.open(AbstractFileItemWriter.java:310)
+	at com.example.demo.batchItem.MItemTasklet.execute(MItemTasklet.kt:69)
+	at com.example.demo.batchItem.MItemTasklet$$FastClassBySpringCGLIB$$9f241831.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at com.example.demo.batchItem.MItemTasklet$$EnhancerBySpringCGLIB$$87091299.execute(<generated>)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375)
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215)
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145)
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258)
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208)
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:152)
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:413)
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136)
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:320)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:149)
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:128)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.run(Unknown Source)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.execute(JobLauncherApplicationRunner.java:199)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.executeLocalJobs(JobLauncherApplicationRunner.java:173)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.launchJobFromProperties(JobLauncherApplicationRunner.java:160)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:155)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:150)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:748)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:121)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:248)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:138)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$8(ClassBasedTestDescriptor.java:363)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:368)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$9(ClassBasedTestDescriptor.java:363)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:362)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:283)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:282)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:272)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:271)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:102)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:101)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:66)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.io.IOException: Could not delete file: C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\src\main\resources\data.csv
+	at org.springframework.batch.item.util.FileUtils.setUpOutputFile(FileUtils.java:59)
+	... 124 common frames omitted
+
+2022-01-13 17:03:05.892  INFO 23328 --- [main] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 34ms
+2022-01-13 17:03:05.899  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=51}] and the following status: [FAILED] in 44ms
+2022-01-13 17:03:05.913  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=63}]
+2022-01-13 17:03:05.924  INFO 23328 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 17:03:05.931  INFO 23328 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 17:03:05.944  INFO 23328 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 19ms
+2022-01-13 17:03:05.952  INFO 23328 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 21ms
+2022-01-13 17:03:05.959  INFO 23328 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=63}] and the following status: [COMPLETED] in 43ms
+2022-01-13 17:03:06.448  INFO 23328 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 17:03:06.452  INFO 23328 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-13 17:53:15.111  INFO 10592 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Starting SpringBatchSampleApplicationKt using Java 16.0.2 on NPC-2021-015 with PID 10592 (C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo\target\classes started by ryosuke.esaka.yu in C:\Users\ryosuke.esaka.yu\Desktop\SpringBatchSample\demo)
+2022-01-13 17:53:15.113  INFO 10592 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : The following profiles are active: dev
+2022-01-13 17:53:16.982  INFO 10592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 17:53:17.278  INFO 10592 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-13 17:53:17.442  INFO 10592 --- [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: POSTGRES
+2022-01-13 17:53:17.692  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-01-13 17:53:17.832  INFO 10592 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-01-13 17:53:17.858  INFO 10592 --- [restartedMain] c.e.demo.SpringBatchSampleApplicationKt  : Started SpringBatchSampleApplicationKt in 3.273 seconds (JVM running for 7.286)
+2022-01-13 17:53:17.861  INFO 10592 --- [restartedMain] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-01-13 17:53:18.048  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] launched with the following parameters: [{run.id=125}]
+2022-01-13 17:53:18.092  INFO 10592 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mCustomerStep]
+2022-01-13 17:53:18.175  INFO 10592 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mCustomerStep] executed in 83ms
+2022-01-13 17:53:18.180  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mCustomerJob]] completed with the following parameters: [{run.id=125}] and the following status: [COMPLETED] in 109ms
+2022-01-13 17:53:18.192  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] launched with the following parameters: [{run.id=52}]
+2022-01-13 17:53:18.199  INFO 10592 --- [restartedMain] o.s.batch.core.job.SimpleStepHandler     : Executing step: [mItemStep]
+2022-01-13 17:53:18.282  INFO 10592 --- [restartedMain] o.s.batch.core.step.AbstractStep         : Step: [mItemStep] executed in 83ms
+2022-01-13 17:53:18.286  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=mItemJob]] completed with the following parameters: [{run.id=52}] and the following status: [COMPLETED] in 92ms
+2022-01-13 17:53:18.295  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] launched with the following parameters: [{run.id=64}]
+2022-01-13 17:53:18.305  INFO 10592 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderStep]
+2022-01-13 17:53:18.309  INFO 10592 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [tOrderDetailStep]
+2022-01-13 17:53:18.339  INFO 10592 --- [SimpleAsyncTaskExecutor-2] o.s.batch.core.step.AbstractStep         : Step: [tOrderStep] executed in 34ms
+2022-01-13 17:53:18.342  INFO 10592 --- [SimpleAsyncTaskExecutor-1] o.s.batch.core.step.AbstractStep         : Step: [tOrderDetailStep] executed in 33ms
+2022-01-13 17:53:18.348  INFO 10592 --- [restartedMain] o.s.b.c.l.support.SimpleJobLauncher      : Job: [FlowJob: [name=tOrderJob]] completed with the following parameters: [{run.id=64}] and the following status: [COMPLETED] in 50ms
+2022-01-13 17:53:18.356  INFO 10592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-13 17:53:18.360  INFO 10592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
